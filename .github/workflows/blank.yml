@@ -55,3 +55,43 @@ int main()
 	return 0;
 
 }
+
+
+
+#include<iostream>
+using namespace std;
+//加号运算符重载
+
+class Person
+{
+	//利用成员函数重载 左移运算符
+//不能使用成员函数去实现左移重载运算符
+
+public:
+	int m_A;
+	int m_B;
+};
+
+//只能利用全局函数去重载左移运算符
+ostream& operator<<(ostream& cout, Person& p)//本质 operator<<(cout,p)
+{
+ 
+	cout << "m_A= "  << p.m_A << " m_B=" << p.m_B;
+	return cout;
+}
+void test01()
+{
+
+	Person p;
+	p.m_A = 10;
+	p.m_B = 10;
+
+	cout << p << endl;;
+}
+int main()
+{
+	test01();
+	system("pause");
+	return 0;
+
+}
